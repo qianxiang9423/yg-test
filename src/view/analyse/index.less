@@ -1,0 +1,159 @@
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    margin-top: 75px;
+    .header-img {
+        width: 100%;
+        margin-top: 100px;
+    
+        img {
+          width: 100%;
+        }
+    }
+
+    // 
+    .content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .card {
+            flex: 1;
+            padding: 20px;
+            background-color: #f7f7f7;
+            .more {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                padding: 20px;
+                font-size: 14px;
+                cursor: pointer;
+                color: #da1730;
+                i {
+                    font-size: 18px;
+                }
+            }
+        }
+        .card + .card {
+            margin-left: 20px;
+        }
+        .title {
+            color: #d3000d;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .tendency-container {
+            #tendency-list {
+                .tendency-item {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    .cover-img {
+                        width: 120px;
+                        height: 213.3px;
+                        object-fit: cover;
+                    }
+
+                    .tendency-right {
+                        margin-left: 20px;
+                        width: 100%;
+                        .tendency-item-title {
+                            color: #d3000e;
+                            font-weight: bold;
+                            font-size: 18px;
+                        }
+                        .tendency-item-subtitle {
+                            margin-top: 10px;
+                            font-size: 13px;
+                            line-height: 1.7;
+                        }
+                        .tendency-item-content {
+                            font-size: 13px;
+                            line-height: 1.7;
+                            display: inline-block;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4; /* 设置最大显示行数 */
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+
+        .programa-container {
+            #programa-list {
+                .programa-item {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    .cover-img {
+                        width: 120px;
+                        height: 213.3px;
+                        object-fit: cover;
+                    }
+
+                    .programa-right {
+                        margin-left: 20px;
+                        .programa-item-title {
+                            color: #d3000e;
+                            font-weight: bold;
+                            font-size: 18px;
+                        }
+                        .programa-item-subtitle {
+                            margin-top: 10px;
+                            font-size: 13px;
+                            line-height: 1.7;
+                        }
+                        .programa-item-content {
+                            font-size: 13px;
+                            line-height: 1.7;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 4; /* 设置最大显示行数 */
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+
+        #analyse-list {
+            margin-top: 20px;
+            .analyse-item {
+                padding: 20px;
+                border-bottom: 1px solid #d9d9d9;
+                cursor: pointer;
+            }
+        }
+    }
+
+    // 二维码
+    .qrcode-container {
+        background-color: #f7f7f7;
+        margin-top: 20px;
+        // width: 100%;
+        flex: 1;
+        padding: 20px;
+        position: relative;
+        .tips {
+            width: 200px;
+            margin: 0 auto;
+            color: red;
+            font-weight: bolder;
+            // text-align: center;
+        }
+        .code {
+            position: absolute;
+            top: 24px;
+            display: flex;
+            align-items: center;
+            right: 300px;
+            color: red;
+            font-weight: bolder;
+        }
+    }
+}

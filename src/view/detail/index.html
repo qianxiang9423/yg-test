@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <%= require('html-loader!@/components/header/header.ejs')%>
+        <div class="container">
+            <!-- <div class="header-img">
+                <img class="img-logo" src="/images/logo-img.png" />
+            </div> -->
+
+            <div class="card" style="margin-top: 80px;">
+                <div class="detail-left">
+                    <img class="img-logo" src="/images/test1.png" />
+
+                    <div style="width: 405px;">
+                        <div class="head-wrap">
+                            <div>
+                                <div class="title"></div>
+                                <div class="sub-title"></div>
+                            </div>
+
+                            <div class="rate-button">
+                                <span class="rate"></span>平均收视率
+                            </div>
+                        </div>
+
+                        <div class="introduce">
+                            <div>导演：<span class="director"></span></div>
+                            <div>主演：<span class="leading-role"></span></div>
+                        </div>
+
+                        <!-- <div class="bottom-button">
+                            <span>战争</span>
+                            <span>内陆</span>
+                            <span>2022</span>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="detail-right">
+                    <!-- 《小夫妻》是由中央电视台、爱奇艺出品、力天影视、百纳千成 道遥影业、海宁传媒集团、
+                    白晶影业联合出品，袁子弹编剧，昌赢执导，殷桃、郭京7领街主演，齐溪、张云龙特别主
+                    演的家庭情感剧)。该剧于2024年7月31日在央视八套播出，并在爱奇艺同步播出。
+                    该剧根据星悦文化作家毛利的小说《全职爸爸》改编，讲述了遭受职场危机的周全化身
+                    全职爸爸，接过了家庭的重担。车莉的事业突飞猛进。两人家庭角色互换后，一切在朝不
+                    可控制的方向发展的都市情感故事 -->
+                </div>
+            </div>
+
+            <div class="tabs-button">
+                <!-- <span>6月5日1-2</span>
+                <span>6月5日1-2</span>
+                <span>6月5日1-2</span>
+                <span>6月5日1-2</span> -->
+            </div>
+
+            <div class="bottom-charts">
+                <div style="width:1400px;height: 300px;margin: 0 auto;" id="lineChart"></div>
+            </div>
+        </div>
+        <%= require('html-loader!@/components/footer/footer.ejs')%>
+            <script type="text/javascript" src="js/echarts.js"></script>
+            <script>
+                var myChart = echarts.init(document.getElementById('lineChart'), null, { devicePixelRatio: 10 });
+                var option = {
+                    grid: {
+                        containLabel: true, // 让图表紧贴 div
+                        left: '0', // 左边距
+                        right: '0', // 右边距
+                        top: '10%', // 上边距
+                        bottom: '10%', // 下边距
+                        width: '80%', // 宽度
+                        height: '90%' // 高度
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['1', '2', '3', '4', '5', '6', '7']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: [820, 932, 901, 934, 1290, 1330, 1320],
+                            type: 'line',
+                            areaStyle: {
+                                normal: {
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                        offset: 0, color: 'rgba(0, 255, 0, 0.3)' // 渐变起始颜色
+                                    }, {
+                                        offset: 1, color: 'rgba(0, 255, 0, 0)' // 渐变结束颜色
+                                    }])
+                                }
+                            },
+                        },
+                        {
+                            data: [20, 932, 901, 934, 2290, 2330, 2320],
+                            type: 'line',
+                            areaStyle: {
+                                normal: {
+                                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                        offset: 0, color: 'rgba(0, 255, 255, 0.3)' // 渐变起始颜色
+                                    }, {
+                                        offset: 1, color: 'rgba(0, 255, 0, 0)' // 渐变结束颜色
+                                    }])
+                                }
+                            },
+                        }
+                    ]
+                };
+
+                myChart.setOption(option);
+
+                var myChart1 = echarts.init(document.getElementById('lineChart1'), null, { devicePixelRatio: 4 });
+                myChart1.setOption(option);
+            </script>
+
+</body>
+
+</html>

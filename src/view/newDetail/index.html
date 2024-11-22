@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>精准监管，精准监管</title>
+    <meta name="viewport">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <!-- <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css"> -->
+</head>
+
+<body pageType='newDetail'>
+    <%= require('html-loader!@/components/header/header.ejs')%>
+    <!-- <div class="container ql-editor ql-blank">
+    </div> -->
+    <div class="container ql-container ql-snow" style="margin-top: 40px;">
+        <div class="ql-editor" id="contentId">
+        </div>
+    <%= require('html-loader!@/components/footer/footer.ejs')%>
+        <script>
+            var id = 0
+            var type = 0
+            var query = window.location.search.substring(1);
+            var params = query.split('&');
+            for (var i = 0; i < params.length; i++) {
+                var keyValue = params[i].split('=');
+                if (keyValue[0] === 'id') {
+                    id = decodeURIComponent(keyValue[1]);
+                }
+                if (keyValue[0] === 'type') {
+                    console.log(keyValue, "type")
+                    type = decodeURIComponent(keyValue[1]);
+                }
+            }
+            $.ajax({
+                url: 'http://196.10.20.222:8081/prod-api/detail',
+                method: 'get',
+                data: {
+                    id: id,
+                    type: type
+                },
+                success: function (result) {
+                    console.log(result, "")
+                    // 创建一个div元素
+                    const container = document.createElement('div');
+                    let content = result.data.info.replace(/\/prod-api\/profile\/upload/g, "http://196.10.20.222:8081/prod-api/profile/upload");
+                    console.log(content, "content")
+                    // 设置富文本内容
+                    container.innerHTML = content;
+
+                    // 将div元素插入到页面的指定位置，例如body末尾
+                    $("#contentId").append(container);
+                    // $('.container img').css('width', '100%');
+
+                }
+            });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+/*底部信息栏*/
+.footer {
+    width: 100%;
+    background-color: #efefef;
+    margin-top: 72px;
+}
+.home-footer {
+    margin: 0 auto;
+    width: 900px;
+    /*height: 349px;*/
+}
+.home-footer-company {
+    padding-top: 63px;
+    padding-bottom: 53px;
+    width: 100%;
+    overflow: hidden;
+    /* height: 267px; */
+    /* border-bottom: 1px solid #2a303f; */
+    display: flex;
+    justify-content: space-between;
+}
+.footer-logo-center {
+    flex: 1;
+    padding: 0 0px 0 60px;
+    position: relative;
+    &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        border: 1px dashed #818895;
+        border-style: dashed;
+        top: 0;
+        right: 0;
+    }
+}
+.footer-logo-center .logo-center-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d3000e;
+}
+.footer-center-content {
+    color: #818895;
+    /* text-align: center; */
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 15px;
+}
+.footer-logo-center .phone,
+.footer-logo-center .address {
+    color: #818895;
+    font-size: 13px;
+}
+.logo-center-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #d3000e;
+}
+.home-footer-company p{
+    color: #818895;
+    font-size: 13px;
+}
+
+.footer-logo-left {
+    flex: 1;
+    padding: 0 60px 0 0;
+    position: relative;
+    &::after {
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        border: 1px dashed #818895;
+        border-style: dashed;
+        top: 0;
+        right: 0;
+    }
+}
+.logo-svg svg {
+    width: 90px;
+    height: 29px;
+    /* margin-top: 40px; */
+}
+.logo-svg span {
+    font-weight: bold;
+    color: #d3000e
+}
+.logo-slogan {
+    color: #818895;
+    /* text-align: center; */
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 15px;
+}
+.home-footer-logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+.home-footer-logo > span:first-child {
+    font-size: 25px;
+    font-weight: 900;
+    color: #0acafc;
+}
+.footer-logo-right {
+    flex: 1;
+    padding: 0 60px 0 60px;
+}
+.more-link {
+    display: flex;
+}
+.more-link div {
+    margin-right: 20px;
+}
+.footer-logo-right a {
+    text-decoration: none;
+}
+.logo-right-title {
+    font-size: 13px;
+    color: #fff;
+}
+.logo-right-telephone {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 19px;
+}
+.logo-right-content {
+    font-size: 13px;
+    margin-top: 23px;
+    color: #818895;
+}
+
+.home-footer-button {
+    width: 130px;
+    height: 40px;
+    background-color: #1D6CFF;
+    border: 0px solid;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 29px;
+}
+.home-register-left {
+    float: left;
+}
+
+.foot-register-record {
+    display: block;
+    float: left;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.footer-register-company > a:first-child{
+    font-size: 12px;
+    padding-left: 0px;
+    border-left: 0px solid #000;
+}
+.footer-register-company > a {
+    font-size: 12px;
+    float: left;
+    color: #818895;
+    margin-right: 18px;
+    padding-left: 18px;
+    border-left: 1px solid #a3a8b1;
+    text-decoration: none;
+}
+
+/*第二套底部*/
+.home-footers {
+    width: 100%;
+    background-color:#F8F9FB;
+}
+.home-footer-detail {
+    width: 1440px;
+    margin: 0px auto;
+    padding-top: 69px;
+}
+.footer-detail-title {
+    width: 100%;
+    height: 280px;
+}
+.footer-detail-logo {
+    float: left;
+    margin-top: 20px;
+}
+.footer-detail-logo > span {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    color: #1267FF;
+}
+.footer-detail-logo > button {
+    width: 130px;
+    height: 40px;
+    background: #1267FF;
+    border-radius: 3px;
+    color: #fff;
+    margin-top: 37px;
+}
+.footer-detail-content {
+    float: left;
+    margin-left: 220px;
+}
+.footer-detail-content h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374567;
+    line-height: 22px;
+}
+.footer-detail-content p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #818894;
+    line-height: 22px;
+}
+
+.footer-detail-code {
+    margin-left: 187px;
+    float: left;
+    margin-top: 30px;
+}
+.footer-detail-code img {
+    width: 104px;
+    height: 104px;
+}
+
+.footer-detail-bottom > span {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #818895;
+    line-height: 35px;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+/*首页大图*/
+.classify-swipe {
+    width: 100%;
+    height: 76px;
+    /*background: url("/public//images/aboutback.png") no-repeat;*/
+    /*background-size: unset;*/
+    background-color: #1267FF;
+}
+.classify-swipe-content {
+    width: 1440px;
+    margin: 0 auto;
+    /*height: 670px;*/
+}
+.home-footer-company p:hover {
+    color: #fff;
+}
+/*首页大图*/

@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <link href="css/video-js.min.css" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body pageType="case">
+<%= require('html-loader!@/components/header/header.ejs')%>
+<div class="container">
+    <!-- <div class="header-img">
+        <img class="img-logo" src="/images/logo-img.png" />
+    </div> -->
+
+    <!-- 搜索框 -->
+    <div style="margin-top: 100px;" class="search-top-contanier">
+        <%= require('html-loader!@/components/search-input/index.ejs')%>
+
+        <div class="video-warp">
+            <div class="video-left">
+                <div class="title">正在热播</div>
+                <div id="current-play">
+
+                </div>
+                <!-- <iframe src="https://www.mgtv.com/activity/mgtv-player-page/?vid=21862777&muted=1&cxid=iencrbs7v&autoplay=0"></iframe> -->
+            </div>
+            <div class="video-right">
+                <div class="title">&nbsp;</div>
+                <div id="video-swiper" class="video-swiper swiper-wrapper"></div>
+                <!-- <div id="pager" style="display: flex;justify-content: center;margin-top: 20px;" class="pager clearfix"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <%= require('html-loader!@/components/qrocde/index.ejs')%> -->
+
+    <div class="card">
+        <div class="title">本周推荐</div>
+        <div class="menu-list"></div>
+    </div>
+</div>
+<%= require('html-loader!@/components/footer/footer.ejs')%>
+<script type="text/javascript" src="js/video.min.js"></script>
+<script src="js/jquery.z-pager.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    // function currentPage(currentPage) {
+    //     if (currentPage != pageNum || currentPage == 1) {
+    //     console.log("当前页码数：" + currentPage);
+    //     pageNum = currentPage
+    //     getList()
+    //     }
+    // }
+</script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+
+
+.container {
+    width: 1440px;
+    margin: 0 auto;
+
+    .header-img {
+        width: 100%;
+        margin-top: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .card {
+        flex: 1;
+        padding: 20px 90px;
+        background-color: #f7f7f7;
+        margin-top: 20px;
+
+        .clear {
+            clear: both;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            .nav {
+                background: #ececec;
+                padding: 5px 20px;
+                border-radius: 5px;
+                display: inline-block;
+                display: flex;
+        
+                span {
+                    display: block;
+                    text-align: center;
+                    color: #666;
+                    cursor: pointer;
+                    padding: 10px 10px;
+        
+                    &.active {
+                        // background: #666666;
+                        color: #fff;
+                        font-weight: bold;
+                        // background: linear-gradient(to bottom, #3b0306, #d3000e);
+                        background: linear-gradient(to bottom, #c60000, #79696a);
+                        border-radius: 5px;
+                    }
+                }
+                span:first-child {
+                    border: 0px
+                }
+            }
+        }
+
+        .content {
+            margin-top: 20px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            // min-height: 480px;
+            height: auto;
+        }
+    
+        /*定位一般设置为relative，overflow设置为hidden来隐藏外面的内容*/
+        .content .box {
+            // position: absolute;
+            display: flex;
+            // width: 1101px;
+            // height: 200px;
+            > div {
+                width: 100%;
+            }
+            .title {
+                color: #cf000c;
+                font-weight: bold;
+            }
+        }
+    
+        /*这个定位设置为absolute, 因为要操作这个的位置来切换内容*/
+        .content ul {
+            float: left;
+            width: 1101px;
+        }
+
+        .right {
+            padding-right: 40px;
+
+            > div {
+                .select-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 10px;
+
+                    > span {
+                        flex: 1;
+                        text-align: center;
+                    }
+                }
+                width: 120px;
+                margin-bottom: 10px;
+            }
+        }
+        
+        .tabs-conatiner {
+            .tabs-header {
+                display: flex;
+                justify-content: space-between;
+                .tabs-nav {
+                    background: #ececec;
+                    padding: 5px 20px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    display: flex;
+            
+                    span {
+                        display: block;
+                        text-align: center;
+                        color: #666;
+                        cursor: pointer;
+                        padding: 10px 10px;
+            
+                        &.tabs-active {
+                            // background: #666666;
+                            color: #fff;
+                            font-weight: bold;
+                            // background: linear-gradient(to bottom, #3b0306, #d3000e);
+                            background: linear-gradient(to bottom, #c60000, #79696a);
+                            border-radius: 5px;
+                        }
+                    }
+                    span:first-child {
+                        border: 0px
+                    }
+                }
+            }
+    
+            .tabs-content {
+                margin-top: 20px;
+                width: 100%;
+                position: relative;
+                // height: auto;
+                // overflow: hidden;
+                // min-height: 960px;
+            }
+        
+            /*定位一般设置为relative，overflow设置为hidden来隐藏外面的内容*/
+            .tabs-content .tabs-box {
+                position: absolute;
+                display: flex;
+                // width: 1101px;
+                // height: 200px;
+                > div {
+                    width: 100%;
+                }
+                .title {
+                    color: #cf000c;
+                    font-weight: bold;
+                }
+            }
+        
+            /*这个定位设置为absolute, 因为要操作这个的位置来切换内容*/
+            .tabs-content ul {
+                float: left;
+                width: 1101px;
+            }
+        }
+
+        table {
+            width: 100%;
+
+            #topTheadId,
+            #theadId {
+                th {
+                    padding-left: 10px;
+                    text-align: center;
+                    > div {
+                        background: linear-gradient(to bottom, #d4001b, #ffffff);
+                        color: #fff;
+                        font-size: 17px;
+                        padding: 10px 5px;
+                        border-radius: 4px;
+                    }
+                }
+                th + th {
+                    margin-left: 20px;
+                }
+            }
+            #topTbodyId,
+            #tbodyId {
+                padding-top: 5px;
+                tr {
+                    td {
+                        text-align: center;
+                        > div {
+                            font-size: 17px;
+                            padding: 10px 5px;
+                        }
+                    }
+                }
+                .trip {
+                    background-color: #dcdcdc;
+                }
+            }
+        }
+    }
+
+    // 二维码
+    .qrcode-container {
+        background-color: #f7f7f7;
+        margin-top: 20px;
+        // width: 100%;
+        flex: 1;
+        padding: 20px;
+        position: relative;
+        .tips {
+            width: 200px;
+            margin: 0 auto;
+            color: red;
+            font-weight: bolder;
+            // text-align: center;
+        }
+        .code {
+            position: absolute;
+            top: 24px;
+            display: flex;
+            align-items: center;
+            right: 300px;
+            color: red;
+            font-weight: bolder;
+        }
+    }
+}
+
+table, tbody, tr, td {
+    height: 50px !important;
+    // border: 1px solid black; /* 可选，用于更清晰地查看边界 */
+}
+
+#selectDate {
+    option {
+        background-color: red;
+    }
+}
+
+/**
+ * Variables
+ */
+/**
+ * Wrapper
+ */
+ .combo-select {
+    position: relative;
+    max-width: 400px;
+    margin-bottom: 15px;
+    font: 100% Helvetica, Arial, Sans-serif;
+    border: 1px #ccc solid;
+    border-radius: 3px; }
+    .combo-select .combo-input {
+      margin-bottom: 0; }
+  
+  /**
+   * Input field
+   */
+  .combo-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    padding-right: 60px;
+    border-radius: 3px; }
+    .combo-input:focus {
+      outline: none; }
+  
+  /**
+   * Arrow
+   */
+  .combo-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    width: 40px;
+    font-size: 12px;
+    color: #999999; }
+    .combo-arrow:before {
+      content: " ";
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #cccccc;
+      display: block;
+      width: 0;
+      height: 0;
+      top: 0;
+      right: 15px;
+      bottom: 0;
+      position: absolute;
+      margin: auto 0; }
+  
+  /**
+   * When opened
+   */
+  .combo-open .combo-arrow {
+    border-color: #51A7E8; }
+    .combo-open .combo-arrow:before {
+      border-top: none;
+      border-bottom: 5px solid #cccccc; }
+  
+  /**
+   * When focused
+   */
+  .combo-focus {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    border-color: #51A7E8; }
+    .combo-focus input {
+      border-color: #51A7E8; }
+  
+  /**
+   * Hide native select
+   */
+  .combo-select select {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-appearance: none;
+    opacity: 0; }
+  
+  @media only screen and (min-width: 960px) {
+    .combo-select select {
+      left: -1px;
+      top: -1px;
+      width: 0;
+      height: 0;
+      margin: 0; } }
+  /**
+   * Selected option
+   */
+  .option-selected {
+    background-color: #eee; }
+  
+  /**
+   * Hovered option
+   */
+  .option-hover {
+    background-color: #006eab;
+    color: #fff; }
+  
+  /**
+   * Option item
+   */
+  .option-item {
+    cursor: pointer;
+    border-bottom: 1px #e3e3e3 solid; }
+    .option-item:hover {
+      background-color: #006eab;
+      color: #fff; }
+    .option-item:last-child {
+      border-bottom: none; }
+  
+  /**
+   * Disabled and optgroups
+   */
+  .option-group {
+    cursor: text;
+    font-weight: 600;
+    background: #e1e1e1;
+    border: 1px #ccc solid;
+    border-width: 1px 0; }
+  
+  /**
+   * Disabled
+   */
+  .option-disabled {
+    opacity: 0.5; }
+  
+  /**
+   * Dropdown
+   */
+  .combo-dropdown {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 0;
+    min-width: 100%;
+    max-width: 300px;
+    max-height: 300px;
+    margin: 0;
+    padding: 0;
+    display: none;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #999999;
+    border-radius: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-sizing: border-box; }
+    .combo-dropdown li {
+      list-style: none;
+      padding: 8px 1em;
+      margin: 0; }
+  
+  /**
+   * On Active
+   */
+  .combo-open .combo-dropdown {
+    display: block; }
+  
+  /**
+   * Search marker
+   */
+  .combo-marker {
+    text-decoration: underline; }
+  

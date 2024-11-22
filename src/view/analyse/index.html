@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body pageType="analyse">
+<%= require('html-loader!@/components/header/header.ejs')%>
+<div class="container">
+    <!-- <div class="header-img">
+        <img class="img-logo" src="/images/logo-img.png" />
+    </div> -->
+
+    <!-- 搜索框 -->
+    <%= require('html-loader!@/components/search-input/index.ejs')%>
+
+    <div class="content">
+        <div class="tendency-container card">
+            <div class="title">行业趋势报告</div>
+            <img style="width: 100%;margin-top: 20px;" src="/images/tendency.png" />
+            <div id="tendency-list"></div>
+            <!-- <div class="more">更多
+                <i class="iconfont icon-youshuangjiantou"></i>
+            </div> -->
+        </div>
+
+        <div class="programa-container card">
+            <div class="title">特别栏目报告</div>
+            <img style="width: 100%;margin-top: 20px;" src="/images/tendency1.jpg" />
+            <div id="programa-list"></div>
+            <!-- <div class="more">更多
+                <i class="iconfont icon-youshuangjiantou"></i>
+            </div> -->
+        </div>
+
+        <div class="analyse-container card">
+            <div class="title">最新报告</div>
+
+            <div id="analyse-list"></div>
+            <!-- <div class="more">更多
+                <i class="iconfont icon-youshuangjiantou"></i>
+            </div> -->
+        </div>
+    </div>
+
+    <%= require('html-loader!@/components/qrocde/index.ejs')%>
+</div>
+<%= require('html-loader!@/components/footer/footer.ejs')%>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>精准监管，精准监管</title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <!-- <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css"> -->
+</head>
+
+<body pageType='newDetail'>
+    <%= require('html-loader!@/components/header/header.ejs')%>
+        <!-- <div class="container ql-editor ql-blank">
+    </div> -->
+        <div class="container" style="margin-top: 40px;">
+            <div class="back" onclick="history.back()">
+                <i class="iconfont icon-jiantou2"></i>
+                返回
+            </div>
+
+            <div id="search-star-contanier" class="search-contanier">
+                <div class="search">
+                    <div class="search-button">
+                        <i class="iconfont icon-sousuo"></i>
+                    </div>
+                    <input placeholder="搜索生成您喜爱的明星高清海报" autocomplete="off" id="searchInput" type="text" class="search-input" />
+                    <!-- <div class="related-star-search">
+                        <div>相关搜索：</div>
+                    </div> -->
+                    <!-- <div class="search-content"></div> -->
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="title">最新海报下载</div>
+
+                <div class="poster"></div>
+            </div>
+
+            <div id="preview-modal" class="d-flex">
+                <div id="preview-content">
+                    <span id="close-btn">&times;</span>
+                    <img id="preview-image" src="" alt="大图预览">
+                    <br>
+                    <a id="download-btn" class="btn btn-primary" download>下载图片</a>
+                </div>
+            </div>
+        </div>
+        <%= require('html-loader!@/components/footer/footer.ejs')%>
+            <script>
+                let currentUrl = ""
+                search()
+
+                // 点击搜索
+                $(".search-button").click(function () {
+                    search()
+                })
+                // 回车键搜索
+                $("#searchInput").on('keypress', function (event) {
+                    if (event.which === 13) { // 13 是回车键的键码
+                        event.preventDefault(); // 防止默认的表单提交行为
+                        search()
+                    }
+                });
+                function search() {
+                    $.ajax({
+                        url: 'http://196.10.20.222:8081/prod-api/poster/list',
+                        data: {
+                            celebrity: $("#searchInput").val()
+                        },
+                        method: 'get',
+                        success: function (result) {
+                            $('.poster').empty();
+                            result.rows.forEach((item, index) => {
+                                var $li = $('<div class="thumbnail"><img style="width:100%;height: 416px;border-radius: 7px;object-fit: cover;" src="http://196.10.20.222:8081/prod-api' + item.img + '"/></div>');
+                                // 将新创建的列表项添加到无序列表中
+                                $('.poster').append($li);
+                            })
+
+                            $('.thumbnail').on('click', function () {
+                                const largeSrc = $(this).data('large');
+                                let url = $(this).find('img').attr('src')
+                                currentUrl = url
+                                console.log(url, "url")
+                                $('#preview-image').attr('src', url);
+                                $('#download-btn').attr('href', url);
+                                $('#preview-modal').fadeIn();
+                            });
+
+                            // 点击关闭按钮关闭预览
+                            $('#close-btn').on('click', function () {
+                                $('#preview-modal').fadeOut();
+                            });
+
+                            // 点击背景关闭预览
+                            $('#preview-modal').on('click', function (e) {
+                                if (e.target.id === 'preview-modal') {
+                                    $(this).fadeOut();
+                                }
+                            });
+                        }
+                    });
+                }
+            </script>
+
+            <script>
+                $(document).ready(function () {
+                    // 点击缩略图显示大图预览
+                    
+                });
+            </script>
+
+            <script>
+                const downloadBtn = document.getElementById('download-btn');
+                async function downloadImage(url) {
+                    try {
+                        // 使用 fetch 获取图片数据
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error('图片下载失败');
+
+                        // 将响应转换为 Blob 对象
+                        const blob = await response.blob();
+
+                        // 创建 Blob URL
+                        const blobUrl = URL.createObjectURL(blob);
+
+                        // 创建临时 <a> 元素
+                        const link = document.createElement('a');
+                        link.href = blobUrl;
+                        link.download = 'downloaded_image.jpg'; // 设置下载文件名
+
+                        // 触发下载
+                        link.click();
+
+                        // 释放 Blob URL
+                        URL.revokeObjectURL(blobUrl);
+                    } catch (error) {
+                        console.error('下载图片出错:', error);
+                    }
+                }
+
+                // 绑定按钮点击事件
+                downloadBtn.addEventListener('click', function () {
+                    downloadImage(currentUrl);
+                });
+            </script>
+</body>
+
+</html>

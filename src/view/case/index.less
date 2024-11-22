@@ -1,0 +1,207 @@
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    margin-top: 75px;
+    video {
+        width: 100%;
+        height: 100%;
+    }
+    .header-img {
+        width: 100%;
+        margin-top: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    // 搜索框
+    .search-top-contanier {
+        // background-color: #f7f7f7;
+        margin-top: 20px;
+        // width: 100%;
+        padding: 20px;
+
+        .search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 800px;
+            margin: 0 auto;
+            position: relative;
+            .search-button {
+                display: flex;
+                align-items: center;
+                padding: 10px 20px;
+                background: #C20000;
+                color: #fff;
+                border-radius: 5px 0 0 5px;
+                cursor: pointer;
+            }
+            i {
+                font-size: 20px;
+            }
+        }
+
+        .video-warp {
+            margin-top: 40px;
+            display: flex;
+            background: #f7f7f7;
+            .video-left {
+                flex: 1;
+                margin-right: 20px;
+                background: #f7f7f7;
+                padding: 20px 20px 0 20px;
+                #current-play {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    .swiper-item {
+                        width: 100%;
+                        position: relative;
+                        margin-bottom: 30px;
+                        // height: 100px;
+                        .video-js {
+                            width: 100%!important;
+                            height: 480px!important;
+                        }
+        
+                        #my-player {
+                            .video-js .vjs-control-bar {
+                                display: none;
+                            }
+                        }
+                        .menceng {
+                            width: 100%;
+                            height: 78px;
+                            // background: rgba(255, 255, 255, 0.2);
+                            position: absolute;
+                            // background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
+                            bottom: 16px;
+                            color: #fff;
+                            padding: 10px 20px 10px 20px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .video-right {
+                flex: 1;
+                background: #f7f7f7;
+                padding: 20px 20px 0 20px;
+            }
+        }
+        
+        #video-swiper {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            // justify-content: space-between;
+            .swiper-item:nth-child(4),
+            .swiper-item:nth-child(2){
+                margin-left: 4%;
+            }
+            .swiper-item {
+                width: 48%;
+                position: relative;
+                margin-bottom: 30px;
+                // height: 100px;
+                .video-js {
+                    width: 100%!important;
+                    height: 259.2px!important;
+                }
+
+                #my-player {
+                    .video-js .vjs-control-bar {
+                        display: none;
+                    }
+                }
+                .menceng {
+                    width: 100%;
+                    height: 78px;
+                    // background: rgba(255, 255, 255, 0.2);
+                    position: absolute;
+                    // background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.8));
+                    bottom: 16px;
+                    color: #fff;
+                    padding: 10px 20px 10px 20px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .title {
+        font-size: 25px;
+        font-weight: bold;
+        color: #d3000f;
+    }
+
+    .card {
+        // width: 100%;
+        padding: 20px 20px;
+        background-color: #f7f7f7;
+        margin-top: 20px;
+
+        .menu-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            .menu-item {
+                display: flex;
+                box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .5);
+                margin-bottom: 20px;
+                margin-right: 15px;
+                img {
+                    width: 150px;
+                    object-fit: cover;
+                    // height: 245px;
+                }
+                .menu-item-right {
+                    width: 260px;
+                    padding: 20px;
+                    .title {
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    .sub-title {
+                        font-size: 14px;
+                        margin-top: 20px;
+                    }
+                    .content {
+                        font-size: 14px;
+                        display: flex;
+                        // display: -webkit-box;
+                        // -webkit-line-clamp: 4;
+                        // -webkit-box-orient: vertical;
+                        // overflow: hidden;
+                        // text-overflow: ellipsis;
+                        > span {
+                            min-width: 42px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .text-container {
+        width: 300px; /* 可根据需要调整宽度 */
+        overflow: hidden;
+        position: relative;
+        line-height: 1.5em;
+        max-height: 6em; /* 4 行高度限制 */
+      }
+      .ellipsis::after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: -5px;
+        padding-left: 20px;
+        // background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%);
+      }
+}
+
+iframe {
+    border: 0;
+}

@@ -1,0 +1,623 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <meta name="viewport">
+    <meta name=”viewport”
+        content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    <meta name="360-site-verification" content="f741579756defa7eaa363cc4d811a7c6" />
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="css/Swiper.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <link href="css/video-js.min.css" rel="stylesheet">
+</head>
+
+<body pageType='index'>
+    <%= require('html-loader!@/components/header/header.ejs')%>
+        <div class="container">
+            <div class="header-title">
+                <div class="row">
+                    <div class="data" id="scale"></div>
+                    <div class="label">用户规模</div>
+                </div>
+
+                <div class="row">
+                    <div class="data" id="behaviors"></div>
+                    <div class="label">用户收视行为条数</div>
+                </div>
+
+                <div class="row">
+                    <div class="data" id="viewCount"></div>
+                    <div class="label">直播电视节目累计观看户次</div>
+                </div>
+            </div>
+            <div style="text-align: right;margin-top: 20px;">注：数据发布时间  <span id="updateTime"></span></div>
+            <!-- <div class="header-title">
+                <div class="home-banner">
+                    <div class="home-banner-swipe swiper-container">
+                        <div id="swiper" class="banner-count swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="left"></div>
+            </div> -->
+
+            <!-- 收视日历  -->
+            <div class="calendar">
+                <div class="title-head">
+                    <div class="title">
+                        <img alt="" style="width:20px;height:20px;" src="/images/5.png" />
+                            收视喜报
+                    </div>
+                    <a href="./imgDetail.html"><div class="downlod">更多</div></a>
+                </div>
+
+                <div class="swiper-container swiper-container-calendar">
+                    <div id="calendar-list" class="swiper-wrapper"></div>
+                </div>
+                <div class="swiper-calendar-next">
+                    <i class="iconfont icon-jiantou21"></i>
+                </div>
+                <div class="swiper-calendar-prev">
+                    <i class="iconfont icon-jiantou2"></i>
+                </div>
+
+                <div id="tooltip" class="tooltip">
+                    <div style="width: 100%;height: 100%" id="barChart"></div>
+                </div>
+            </div>
+
+            <%= require('html-loader!@/components/search-input/index.ejs')%>
+
+                <!-- 视频 -->
+                <div class="video-container">
+
+                    <div class="video-right">
+                        <div class="title">
+                            <img alt="" style="width:30px;height:20px;" src="/images/4.png" />
+                            黄金时段电视剧收视情况
+                        </div>
+                        <div class="table-container">
+                            <div style="width:77%;display: flex;justify-content: space-between;margin: 0 auto;">
+                                <div id="select-date"></div>
+                                <div id="select-week"></div>
+                                <div id="select-month"></div>
+                            </div>
+
+                            <div class="table-wrap">
+                                <div class="table-header">
+                                    <div style="width: 100px;">剧名</div>
+                                    <div style="width: 80px;">集数</div>
+                                    <div style="width: 80px;">收视率</div>
+                                    <div style="width: 100px;">收视份额</div>
+                                    <div style="width: 100px;">播出频道</div>
+                                </div>
+
+                                <div class="menu-table"></div>
+                                <div id="table-tooltips">
+                                    <div style="width: 100%;height: 100%" id="tableChart"></div>
+                                </div>
+                                <div class="current-date"></div>
+                            </div>
+
+                            <div id="tableEcharts" style="width: 740px;height: 340px;display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="video-left">
+                        <div class="title">
+                            <img alt="" style="width:20px;height:30px;" src="/images/3.png" />
+                            一周视点-优秀节目推荐
+                        </div>
+                        <div class="video-swipe-container swiper-container">
+                            <div id="video-swiper" class="video-swiper swiper-wrapper"></div>
+                        </div>
+                        <div class="swiper-video-next">
+                            <i class="iconfont icon-jiantou21"></i>
+                        </div>
+                        <div class="swiper-video-prev">
+                            <i class="iconfont icon-jiantou2"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <%= require('html-loader!@/components/qrocde/index.ejs')%>
+
+                    <div class="dynamic-container">
+                        <div class="dynamic-left">
+                            <div class="title">
+                                <img alt="" style="width:25px;height:30px;" src="/images/2.png" />
+                                报告
+                            </div>
+
+                            <div class="industry-content">
+                                <img alt="" style="width:200px;height:300px;" src="/images/test1.png" />
+                                <div class="industry-list"></div>
+                            </div>
+                        </div>
+
+                        <div class="dynamic-right">
+                            <div class="title">
+                                <img alt="" style="width:30px;height:30px;" src="/images/1.png" />
+                                动态
+                            </div>
+
+                            <div class="work-content">
+                                <div class="work-list"></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <%= require('html-loader!@/components/home-footer/footer.ejs')%>
+            <script type="text/javascript" src="js/idangerous.swiper.js"></script>
+            <!-- <script type="text/javascript" src="js/video.min.js"></script> -->
+            <script type="text/javascript" src="js/echarts.js"></script>
+            <!-- <script type="text/javascript" defer src="js/search-input.js"></script> -->
+            <script src="/js/SelectInput.js"></script>
+            <!-- 收视日历 -->
+            <script type="text/javascript">
+                // 收视日历
+                $.ajax({
+                    url: 'http://196.10.20.222:8081/prod-api/ratings/list2',
+                    async: true,
+                    timeout: 2000,
+                    success: function (result) {
+                        result.rows.forEach((item, index) => {
+                            var $li = $('<div id="' + index + '" class="swiper-slide swiper-calendar-slide"><img alt="cvb" style="width:100%;height: 315px;border-radius: 7px;object-fit: cover;" src="http://196.10.20.222:8081/prod-api' + item.img + '"/><div class="calendar-title">《' + item.title + '》</div>');
+                            // 将新创建的列表项添加到无序列表中
+                            $('#calendar-list').append($li);
+                        })
+
+                        var swiper = new Swiper('.swiper-container-calendar', {
+                            slidesPerView: 5,
+                            spaceBetween: 80,
+                            loop: true,
+                            navigation: {
+                                nextEl: '.swiper-calendar-next',
+                                prevEl: '.swiper-calendar-prev',
+                            },
+                            paginationClickable: true,
+                            watchActiveIndex: true
+                        });
+
+                    }
+                });
+
+                var tooltipTimeout = null
+
+                $('.swiper-calendar-slide').on('mouseenter', function (event) {
+                    if (!$(event.relatedTarget).closest('.swiper-calendar-slide').length) {
+                        clearTimeout(tooltipTimeout);
+                        $('#tooltip').stop(true, true).fadeOut();
+                        // 获取当前鼠标所在位置
+                        index = $(this).attr("id")
+                        var slideWidth = $(this).outerWidth();
+                        var slideHeight = $(this).outerHeight();
+                        var slideOffset = $(this).position();
+                        var offest = $('.swiper-container-calendar')[0].swiper.translate;
+                        $('#tooltip').css({
+                            top: slideOffset.top + slideHeight - 80 + 'px',
+                            left: slideOffset.left + offest - 60 + 'px'
+                        }).fadeIn();
+
+                        var myChart = echarts.init(document.getElementById('barChart'));
+                        // 指定图表的配置项和数据
+                        var option = {
+                            grid: {
+                                containLabel: true, // 让图表紧贴 div
+                                left: '0', // 左边距
+                                right: '0', // 右边距
+                                top: '20%', // 上边距
+                                bottom: '10%', // 下边距
+                                width: '100%', // 宽度
+                                height: '70%' // 高度
+                            },
+                            title: {
+                                text: '全剧每集收视率:' + calendarList[index].echarts.rate,
+                                textStyle: {
+                                    fontSize: 12, // 设置标题文字大小为 14px
+                                    color: '#ffffff'
+                                }
+                            },
+                            xAxis: {
+                                type: 'category',
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#ffffff' // 设置坐标轴线颜色为红色
+                                    }
+                                },
+                                axisLabel: {
+                                    textStyle: {
+                                        color: '#fffffff' // 设置坐标轴文字颜色为蓝色
+                                    }
+                                },
+                                axisLabel: {
+                                    show: true // 显示 x 轴标签
+                                }
+                            },
+                            yAxis: {
+                                type: 'value',
+                                axisLine: {
+                                    lineStyle: {
+                                        color: '#ffffff', // 设置坐标轴线颜色为绿色
+                                        type: 'solid' // 将 y 轴改为实线
+                                    },
+                                },
+                                axisLabel: {
+                                    textStyle: {
+                                        color: '#ffffff', // 设置坐标轴文字颜色为紫色
+                                        type: 'solid' // 将 y 轴改为实线
+                                    }
+                                }
+                            },
+                            dataset: {
+                                // dimensions: ['2015', '2016'],
+                                source: calendarList[index].echarts.data
+                            },
+                            series: [
+                                {
+                                    type: 'bar',
+                                    itemStyle: {
+                                        color: new echarts.graphic.LinearGradient(
+                                            0, 0, 0, 1,
+                                            [
+                                                { offset: 0, color: '#fcc05b' },
+                                                { offset: 1, color: '#f50000' }
+                                            ]
+                                        )
+                                    },
+                                    barGap: '0%',
+                                    barWidth: 15
+                                },
+                                {
+                                    type: 'bar',
+                                    itemStyle: {
+                                        color: new echarts.graphic.LinearGradient(
+                                            0, 0, 0, 1,
+                                            [
+                                                { offset: 0, color: '#f30024' },
+                                                { offset: 1, color: '#3e0000' }
+                                            ]
+                                        )
+                                    },
+                                    barWidth: 15
+                                    // barGap: '-100%'
+                                },
+                            ]
+                        };
+
+                        // 使用刚指定的配置项和数据显示图表。
+                        myChart.setOption(option);
+                    }
+                });
+
+                $('.swiper-calendar-slide').on('mouseleave', function (event) {
+                    if (!$(event.relatedTarget).closest('.swiper-calendar-slide').length) {
+                        tooltipTimeout = setTimeout(function () {
+                            $('#tooltip').fadeOut();
+                        }, 300);
+                    }
+                });
+
+            </script>
+            <script>
+                // var player = videojs('my-player');
+            </script>
+
+            <script type="text/javascript">
+                // 行业报告
+                $.ajax({
+                    async: true,
+                    timeout: 2000,
+                    url: 'http://196.10.20.222:8081/prod-api/reports/list',
+                    method: "get",
+                    data: {
+                        pageSize: 6
+                    },
+                    async: false,
+                    success: function (result) {
+                        console.log(result, "result")
+                        result.rows.forEach((item, index) => {
+                            if (index > 5) return;
+                            var $li = $('<div class="industry-item" data-url="http://196.10.20.222:8081/prod-api' + item.pdfFile + '">' + item.title + '</div>');
+                            $('.industry-list').append($li);
+                        })
+                    }
+                });
+                $('.industry-item').click(function () {
+                    let url = $(this)[0].getAttribute('data-url')
+                    window.open(url)
+                })
+
+                // 工作动态
+                $.ajax({
+                    async: true,
+                    timeout: 2000,
+                    url: 'http://196.10.20.222:8081/prod-api/work_dynamics/list',
+                    method: "get",
+                    data: {
+                        pageSize: 6
+                    },
+                    async: false,
+                    success: function (result) {
+                        result.rows.forEach((item, index) => {
+                            var $li = $('<div class="work-item"><div><a style="all: unset;" href="newDetail.html?id=' + item.id + '&type=1">' + item.title + '</a></div><div>' + item.createdAt + '</div></div>');
+
+                            // 将新创建的列表项添加到无序列表中
+                            $('.work-list').append($li);
+                        })
+                    }
+                });
+            </script>
+
+            <script type="text/javascript">
+                var isShow = false
+                // 右侧轮播图
+                var mydata = [
+                    {
+                        url: "/images/news.png",
+                    },
+                    {
+                        url: "/images/news1.png",
+                    }
+                ];
+
+            </script>
+
+            <script>
+                $.ajax({
+                    async: true,
+                    timeout: 2000,
+                    url: 'http://196.10.20.222:8081/prod-api/dayrankings/datelist',
+                    success: function (result) {
+                        let dateList = result.rows.map((item) => {
+                            return {
+                                label: item
+                            }
+                        })
+                        let selectDate = new SelectInput('#select-date', '日榜', dateList);
+                        getDateMenu(dateList[0].label)
+                    },
+                    error: function (err) {
+                        let selectDate = new SelectInput('#select-date', '日榜', []);
+                    }
+                });
+
+                function handleTableData(result) {
+                    $(".table-wrap").show()
+                    $("#tableEcharts").hide();
+                    let list = result.rows.map((item) => {
+                        return {
+                            name: item.name,
+                            episode: item.episode,
+                            channel: item.channel,
+                            echarts: {
+                                rate: item.audienceRating,
+                                data: [
+                                    ['年份', '2015', '2016'],
+                                    ['14', 43.3, 85.8],
+                                    ['13', 83.1, 73.4],
+                                    ['12', 86.4, 65.2],
+                                    ['11', 72.4, 53.9]
+                                ]
+                            }
+                        }
+                    })
+                    $('.menu-table').empty();
+                    $.each(list, function (i, item) {
+                        if (i % 2 == 0) {
+                            var $li = $('<div id="' + i + '" class="table-content"><div style="width: 100px;">' + item.name + '</div><div style="width: 80px;">' + item.episode + '</div><div style="width: 80px;">' + item.echarts.rate + '</div><div style="width: 100px;">' + item.echarts.rate + '</div><div style="width: 100px;">' + item.channel + '</div></div>');
+                        } else {
+                            var $li = $('<div id="' + i + '" class="table-content stripe"><div style="width: 100px;">' + item.name + '</div><div style="width: 80px;">' + item.episode + '</div><div style="width: 80px;">' + item.echarts.rate + '</div><div style="width: 100px;">' + item.echarts.rate + '</div><div style="width: 100px;">' + item.channel + '</div></div>');
+                        }
+
+                        // 将新创建的列表项添加到无序列表中
+                        $('.menu-table').append($li);
+                    })
+                }
+
+                // 获取日榜数据
+                function getDateMenu(selectedValue) {
+                    $.ajax({
+                        async: true,
+                        timeout: 2000,
+                        url: 'http://196.10.20.222:8081/prod-api/dayrankings/list',
+                        method: "get",
+                        data: {
+                            date: selectedValue,
+                            pageSize: 7,
+                            // note:"电视剧",
+                        },
+                        success: function (result) {
+                            handleTableData(result)
+                            $(".current-date").text('数据日期：' + selectedValue)
+                        }
+                    });
+                }
+
+                // 获取周榜数据
+                function getWeekMenu(selectedValue) {
+                    $.ajax({
+                        async: true,
+                        timeout: 2000,
+                        url: 'http://196.10.20.222:8081/prod-api/weekrankings/list',
+                        method: "get",
+                        data: {
+                            date: selectedValue,
+                            // note:"电视剧",
+                            pageSize: 7,
+                        },
+                        success: function (result) {
+                            handleTableData(result)
+                            // $(".current-date").text("")
+                            $(".current-date").text(selectedValue)
+                        }
+                    });
+                }
+
+                $(document).on('change', '#select-date', function (event, selectedValue) {
+                    getDateMenu(selectedValue.label)
+                    isShow = false
+                });
+
+
+                $.ajax({
+                    async: true,
+                    timeout: 2000,
+                    url: 'http://196.10.20.222:8081/prod-api/weekrankings/datelist',
+                    method: "get",
+                    data: {
+                        pageSize: 10
+                    },
+                    success: function (result) {
+                        let options = result.rows.map((item) => {
+                            return {
+                                label: Object.values(item),
+                                value: Object.keys(item)
+                            }
+                        })
+
+                        let selectWeek = new SelectInput('#select-week', '周榜', options);
+                    },
+                    error: function (err) {
+                        let selectWeek = new SelectInput('#select-week', '周榜', []);
+                    }
+
+                });
+
+                $.ajax({
+                    async: true,
+                    timeout: 2000,
+                    url: 'http://196.10.20.222:8081/prod-api/viewing_calendar/list',
+                    method: "get",
+                    success: function (result) {
+                        let menuOptions = result.rows.map((item) => {
+                            return {
+                                // label: item.channelType2,
+                                value: item.id,
+                                label: item.title
+                            }
+                        })
+                        let selectMonth = new SelectInput('#select-month', '收视日历', menuOptions);
+                    },
+                    error: function (err) {
+                        let selectMonth = new SelectInput('#select-month', '收视日历', []);
+                    }
+                });
+
+                $(document).on('change', '#select-week', function (event, selectedValue) {
+                    getWeekMenu(selectedValue.value)
+                    isShow = false
+                });
+
+                $(document).on('change', '#select-month', function (event, selectedValue) {
+                    getCalenderDate(selectedValue.label)
+                    isShow = true
+                });
+
+                function getCalenderDate(label) {
+                    $.ajax({
+                        async: true,
+                        timeout: 2000,
+                        url: 'http://196.10.20.222:8081/prod-api/viewing_calendar/detailList',
+                        method: "get",
+                        data: {
+                            name: label,
+                            pageSize: 10
+                        },
+                        success: function (result) {
+                            $(".table-wrap").hide()
+                            $("#tableEcharts").show()
+
+                            let xData = []
+                            let yData = []
+
+                            result.rows.forEach((item, index) => {
+                                let rate = Number(item.audienceRating.replace('%', ''))
+                                xData.push(item.remark)
+                                yData.push(rate)
+                            })
+                            var myTableChart = echarts.init(document.getElementById('tableEcharts'));
+                            // 指定图表的配置项和数据
+                            var option = {
+                                title: {
+                                    text: label
+                                },
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {
+                                        type: 'shadow'
+                                    }
+                                },
+                                grid: {
+                                    left: '3%',
+                                    right: '4%',
+                                    bottom: '3%',
+                                    containLabel: true
+                                },
+                                xAxis: [
+                                    {
+                                        type: 'category',
+                                        data: xData,
+                                        axisTick: {
+                                            alignWithLabel: true
+                                        }
+                                    }
+                                ],
+                                yAxis: [
+                                    {
+                                        type: 'value',
+                                        axisLine: {
+                                            show: true // 确保这个属性是true
+                                        }
+                                    }
+                                ],
+                                series: [
+                                    {
+                                        name: '收视率',
+                                        type: 'line', // 将类型改为 'line'
+                                        itemStyle: {
+                                            color: new echarts.graphic.LinearGradient(
+                                                0, 0, 0, 1,
+                                                [
+                                                    { offset: 0, color: '#fcc05b' },
+                                                    { offset: 1, color: '#f50000' }
+                                                ]
+                                            )
+                                        },
+                                        barGap: '0%',
+                                        barWidth: 15,
+                                        data: yData
+                                    }
+                                ]
+                            };
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myTableChart.setOption(option);
+                        }
+                    });
+                }
+
+                $.ajax({
+                    url: 'http://196.10.20.222:8081/prod-api/indexsetting/list',
+                    method: 'get',
+                    success: function (result) {
+                        console.log(result, "result")
+                        document.getElementById("scale").innerText = result.rows[0].userScale + '亿'
+                        document.getElementById("behaviors").innerText = result.rows[0].behaviorsCount + '亿'
+                        document.getElementById("viewCount").innerText = result.rows[0].times + '亿'
+                        document.getElementById("updateTime").innerText = result.rows[0].updatedAt
+                    }
+                });
+            </script>
+</body>
+
+</html>

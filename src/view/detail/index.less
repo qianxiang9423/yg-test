@@ -1,0 +1,93 @@
+.container {
+    width: 1440px;
+    margin: 0 auto;
+
+    .header-img {
+        width: 100%;
+        margin-top: 100px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .card {
+        padding: 40px;
+        background-color: #f7f7f7;
+        margin-top: 10px;
+        display: flex;
+
+        .detail-left {
+            display: flex;
+            flex: 1;
+            padding: 0px 50px 0 0;
+            justify-content: space-between;
+            img {
+                width: 150px;
+            }
+            .head-wrap {
+                display: flex;
+                justify-content: space-between;
+                .rate-button {
+                    background: red;
+                    color: #fff;
+                    padding: 10px;
+                    font-size: 14px;
+                    width: 73px;
+                    font-weight: bold;
+                    border-radius: 10px;
+                    text-align: center;
+                }
+            }
+
+            .title {
+                color: #C20000;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .sub-title {
+                font-size: 12px;
+            }
+            .bottom-button {
+                margin-top: 20px;
+                > span {
+                    background: #bbbbbb;
+                    padding: 5px;
+                    border-radius: 5px;
+                    color: #fff;
+                    font-weight: 500;
+                }
+            }
+            .introduce {
+
+            }
+        }
+
+        .detail-right {
+            flex: 1 ;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+    }
+
+    .tabs-button {
+        margin-top: 20px;
+        display: flex;
+        padding: 20px;
+        > span {
+            padding: 5px 10px;
+            border: 1px solid #C20000;
+            border-radius: 5px;
+            color: #C20000;
+            font-size: 12px;
+        }
+        span + span {
+            margin-left: 10px;
+        }
+        // justify-content: space-between;
+    }
+
+    .bottom-charts {
+        margin-top: 20px;
+    }
+}

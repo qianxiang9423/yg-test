@@ -1,0 +1,87 @@
+.container {
+    width: 1440px;
+    margin: 0 auto;
+    margin-top: 75px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #d3000f;
+    }
+
+    .search-wrap {
+        display: flex;
+        margin-top: 20px;
+
+        .search-list {
+            flex: 3;
+            .search-item {
+                display: flex;
+                padding: 20px 0 20px 0;
+                border-bottom: 1px solid #9c9c9c;
+                // box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .5);
+                // margin-bottom: 20px;
+                .search-head {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .tv-rate {
+                        background: #C20000;
+                        color: #fff;
+                        border-radius: 5px;
+                        border: none;
+                        width: 95px;
+                        padding: 10px;
+                    }
+                }
+                img {
+                    width: 200px;
+                    height: 112px;
+                    object-fit: cover;
+                }
+                .search-item-right {
+                    width: 500px;
+                    padding: 0 10px 0 20px;
+                    .title {
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    .sub-title {
+                        font-size: 14px;
+                    }
+                    .content {
+                        font-size: 14px;
+                        display: flex;
+                        > span {
+                            min-width: 42px;
+                        }
+                    }
+                }
+            }
+        }
+        .new-list {
+            flex: 2;
+        }
+
+        .card {
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        .card + .card {
+            margin-left: 20px;
+        }
+    }
+
+    .item {
+        background: linear-gradient(to right, #f1f1f1, #ffffff);
+        padding: 10px;
+        margin-bottom: 5px;
+        position: relative;
+        cursor: pointer;
+    }
+    a {
+        all: unset;
+    }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精准监管，精准监管</title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="css/fancyspinbox.css">
+</head>
+<body pageType='about'>
+<%= require('html-loader!@/components/header/header.ejs')%>
+<div class="container">
+    <!-- <div class="header-img">
+        <img class="img-logo" src="/images/logo-img.png" />
+    </div> -->
+
+    <div class="introduce-wrap" style="margin-top: 100px;">
+        <div class="title">介绍</div>
+
+        <div class="introduce-content">
+            <div class="introduce-item" id="introductory">
+                <img src="/images/about/1.png" />
+                <div class="title">简介</div>
+                <div class="content"></div>
+                <!-- <div class="more">更多</div> -->
+            </div>
+            <div class="introduce-item" id="policy">
+                <img style="width: 70px;left: 141px; top: -35px;" src="/images/about/2.png" />
+                <div class="title">政策保障</div>
+                <div class="content"></div>
+                <!-- <div class="more">更多</div> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="service-wrap">
+        <div class="title">产品与服务</div>
+
+        <div class="service-content">
+            <div class="service-item" id="statistic">
+                <img style="width: 80px;left: 170px;top: -39px;" src="/images/about/3.png" />
+                <div class="title">电视大屏收视统计</div>
+                <div class="content"></div>
+                <!-- <div class="more">更多</div> -->
+            </div>
+            <div class="service-item" id="evaluate">
+                <img style="width: 70px;left: 170px; top: -35px;" src="/images/about/4.png" />
+                <div class="title">综合评价</div>
+                <div class="content"></div>
+                <!-- <div class="more">更多</div> -->
+            </div>
+            <div class="service-item" id="advertising">
+                <img style="width: 75px;left: 170px;top: -37px;" src="/images/about/5.png" />
+                <div class="title">广告业务</div>
+                <div class="content"></div>
+                <!-- <div class="more">更多</div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<%= require('html-loader!@/components/footer/footer.ejs')%>
+    <script>
+        $.ajax({
+            url: 'http://196.10.20.222:8081/prod-api/about/list',
+            type: "get",
+            data: {
+                pageNum: 1,
+                pageSize: 10,
+            },
+            success: function (result) {
+                result.rows.forEach(item => {
+                    if (item.type == "简介") {
+                        $("#introductory .content").html(item.info)
+                    } else if (item.type == "政策保障") {
+                        $("#policy .content").html(item.info)
+                    } else if (item.type == "广告业务") {
+                        $("#statistic .content").html(item.info)
+                    } else if (item.type == "电视大屏收视统计") {
+                        $("#evaluate .content").html(item.info)
+                    } else if (item.type == "综合评价") {
+                        $("#advertising .content").html(item.info)
+                    }
+                })
+            }
+        });
+    </script>
+</body>
+</html>

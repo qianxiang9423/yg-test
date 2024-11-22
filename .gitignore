@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+build/
+npm-debug.log
+.idea
+.history
+km-index
+km-index.zip
+dist/

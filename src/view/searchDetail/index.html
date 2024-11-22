@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精准监管，精准监管</title>
+    <meta name="viewport">
+    
+    <meta name="description" content="" />
+    <meta name="description" content="" />
+    <meta name="baidu-site-verification" content="wczeFssEiy" />
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4685771_ffbm2ap0f7b.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="css/fancyspinbox.css">
+</head>
+<body pageType='searchDetail'>
+<%= require('html-loader!@/components/header/header.ejs')%>
+<div class="container">
+    <%= require('html-loader!@/components/search-input/index.ejs')%>
+    
+    <div class="search-wrap">
+        <div class="card search-list">
+            <div class="title">搜索结果</div>
+
+            <div id="search-list"></div>
+        </div>
+
+        <div class="card new-list">
+            <div class="title">新闻动态</div>
+
+            <div id="new-list"></div>
+        </div>
+    </div>
+</div>
+<%= require('html-loader!@/components/footer/footer.ejs')%>
+<script type="text/javascript" defer src="js/search-input.js"></script>
+</body>
+</html>
